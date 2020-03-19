@@ -1,0 +1,64 @@
+  import java.util.Scanner;
+  import java.util.LinkedList;
+  import java.io.PrintWriter;
+  import java.io.File;
+  import java.util.Collections;
+  import java.util.Queue;
+ class Movie{
+      Node left;
+      Node right;
+      int input;
+      //allows the moviesBST class to call binary tree here
+      public Movie(String a, String b){
+          a = this.a;
+          b = this.b;
+        }
+      Node(String in) {
+          left = null;
+          right = null;
+          input = in;
+      }
+      //reads in file and sorts names and dates apart into left and right children nodes
+      BinaryTree<String> titles(String movies){
+         File f = new File("movies.csv");
+         Scanner scan = new Scanner(f);
+         root = null;
+         
+         Stack<BinaryTree<String>> st = new Stack<BinaryTree<String>>();
+         while(scan.hasNext()){
+            String name = scan.next();
+            Node leftC = new Node(name);
+            String date = scan.next();
+            Node rightC = new Node(date);
+            root.left = leftC;
+            root.right = rightC;
+            insert(leftC, rightC);
+            }
+           f.close(); 
+        }
+    }
+ class MovieBST{
+     //compares two nodes to sort alphabetically
+    public Node compare(Node root, int key){
+         if( root.key>key){
+            return search(root.left, key);
+            }
+            return compare(root.right, key);
+       }
+     public static void main(String[] args){
+        Scanner read = new Scanner(System.in);
+        String query = input.nextLine();
+        //asks the user if they want to pull up a list, then allows them to look for specific movies
+        while(!query.equals("q")){
+        if(query.equals("movie list"){
+            System.out.println("enter movie name to search, then enter the other");
+            String a = input.nextLine();
+            String b = input.nextLine();
+            Movie m = new Movie(a, b);
+            compare(m);
+            System.out.println(m);
+       }
+       System.out.println("enter movie name to search, then enter the other");
+       }
+    }
+}
